@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0A1628;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+@keyframes gradientShift {
+  0%   { opacity: 0.6; transform: scale(1) translate(0, 0); }
+  50%  { opacity: 1;   transform: scale(1.1) translate(-2%, 2%); }
+  100% { opacity: 0.6; transform: scale(1) translate(0, 0); }
+}
+
+@keyframes gradientShift2 {
+  0%   { opacity: 0.4; transform: scale(1) translate(0, 0); }
+  50%  { opacity: 0.8; transform: scale(1.15) translate(2%, -2%); }
+  100% { opacity: 0.4; transform: scale(1) translate(0, 0); }
+}
+
+.bg-glow-1 {
+  position: fixed;
+  top: -15%;
+  right: -5%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(ellipse, rgba(0, 230, 118, 0.12) 0%, rgba(0, 100, 255, 0.2) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+.bg-glow-2 {
+  position: fixed;
+  top: 20%;
+  left: -10%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(ellipse, rgba(0, 80, 200, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: gradientShift2 10s ease-in-out infinite;
+}
+
+.bg-glow-3 {
+  position: fixed;
+  bottom: 10%;
+  right: 20%;
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(ellipse, rgba(0, 230, 118, 0.06) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: gradientShift 12s ease-in-out infinite reverse;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.feature-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 40px rgba(0, 230, 118, 0.15), 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.btn-coming-soon {
+  background-color: #00E676;
+  color: #0A0F1E;
+  font-weight: 700;
+  border: none;
+  cursor: default;
+  border-radius: 999px;
+  box-shadow: 0 0 20px rgba(0, 230, 118, 0.5), 0 0 40px rgba(0, 230, 118, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-coming-soon:hover {
+  box-shadow: 0 0 30px rgba(0, 230, 118, 0.7), 0 0 60px rgba(0, 230, 118, 0.35);
+}
