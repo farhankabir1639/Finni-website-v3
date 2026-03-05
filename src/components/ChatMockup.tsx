@@ -60,7 +60,7 @@ export default function ChatMockup() {
             <span style={{ color: '#fff', fontWeight: '700', fontSize: '12px' }}>$45.00</span>
           </div>
           <p style={{ color: '#8892A4', fontSize: '11px' }}>
-            You're doing great! Still under your food budget 💪
+            You&apos;re doing great! Still under your food budget 💪
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export default function ChatMockup() {
         }}>
           <p style={{ color: '#fff', fontWeight: '600', fontSize: '13px', marginBottom: '8px' }}>Let me check... 🤔</p>
           <p style={{ color: '#8892A4', fontSize: '11px', lineHeight: '1.6' }}>
-            Save $50/week and you'll have it in <span style={{ color: '#00E676', fontWeight: '600' }}>10 weeks</span>. Want me to set a goal?
+            Save $50/week and you&apos;ll have it in <span style={{ color: '#00E676', fontWeight: '600' }}>10 weeks</span>. Want me to set a goal?
           </p>
         </div>
 
