@@ -23,7 +23,7 @@ export default function DataDeletion() {
           company@heyfinni.com
         </a>
         <p style={{ color: '#8892A4', fontSize: '14px', marginTop: '16px', lineHeight: '1.7' }}>
-          Please use the subject line: <strong style={{ color: '#fff' }}>"Data Deletion Request"</strong> and include the email address associated with your account.
+          Please use the subject line: <strong style={{ color: '#fff' }}>&quot;Data Deletion Request&quot;</strong> and include the email address associated with your account.
         </p>
       </div>
 
