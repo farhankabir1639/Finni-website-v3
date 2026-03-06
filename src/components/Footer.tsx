@@ -14,12 +14,20 @@ export default function Footer() {
             <span className="font-semibold text-white">Finni AI</span>
             <span className="text-[#8892A4] text-sm ml-2">© 2025 Finni AI</span>
           </div>
-          <Link
-            href="/privacy-policy"
-            className="text-[#8892A4] hover:text-[#00E676] transition-colors duration-300 text-sm font-medium"
-          >
-            Privacy Policy
-          </Link>
+          <div className="flex items-center">
+            <Link
+              href="/privacy-policy"
+              style={{ color: "#8892A4", fontSize: "14px", textDecoration: "none" }}
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/data-deletion"
+              style={{ color: "#8892A4", fontSize: "14px", textDecoration: "none", marginLeft: "24px" }}
+            >
+              Data Deletion
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
