@@ -11,7 +11,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Finni AI — Your Personal Money Buddy",
   description:
-    "Finni AI is the personal finance app that feels like texting a friend. Log expenses in plain English, get smart insights, and finally understand your money. Coming soon.",
+    "Finni AI is the personal finance app that feels like texting a friend. Log expenses in plain English, get smart insights, and finally understand your money. Now on Google Play.",
   keywords: [
     "personal finance app",
     "AI budgeting",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Finni AI — Your Personal Money Buddy",
     description:
-      "The AI finance app that feels like texting a friend. Coming soon.",
+      "The AI finance app that feels like texting a friend. Now on Google Play.",
   },
   metadataBase: new URL("https://heyfinni.com"),
 };

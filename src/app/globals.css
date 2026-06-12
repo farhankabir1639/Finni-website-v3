@@ -84,17 +84,19 @@ body {
   box-shadow: 0 0 40px rgba(0, 230, 118, 0.15), 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.btn-coming-soon {
+.btn-download {
   background-color: #00E676;
   color: #0A0F1E;
   font-weight: 700;
   border: none;
-  cursor: default;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
   border-radius: 999px;
   box-shadow: 0 0 20px rgba(0, 230, 118, 0.5), 0 0 40px rgba(0, 230, 118, 0.25);
   transition: box-shadow 0.3s ease;
 }
 
-.btn-coming-soon:hover {
+.btn-download:hover {
   box-shadow: 0 0 30px rgba(0, 230, 118, 0.7), 0 0 60px rgba(0, 230, 118, 0.35);
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PLAY_STORE_URL } from "@/lib/links";
 
 export default function Footer() {
   return (
@@ -15,9 +16,17 @@ export default function Footer() {
             <span className="text-[#8892A4] text-sm ml-2">© 2025 Finni AI</span>
           </div>
           <div className="flex items-center">
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#8892A4", fontSize: "14px", textDecoration: "none" }}
+            >
+              Get the App
+            </a>
             <Link
               href="/privacy-policy"
-              style={{ color: "#8892A4", fontSize: "14px", textDecoration: "none" }}
+              style={{ color: "#8892A4", fontSize: "14px", textDecoration: "none", marginLeft: "24px" }}
             >
               Privacy Policy
             </Link>

@@ -1,3 +1,5 @@
+import { PLAY_STORE_URL } from "@/lib/links";
+
 export default function CTABanner() {
   return (
     <section
@@ -13,14 +15,16 @@ export default function CTABanner() {
               id="cta-heading"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0A1128] mb-4 sm:mb-5"
             >
-              Finni is launching soon. Want in early?
+              Finni is live. Ready to meet your money buddy?
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-[#0A1128]/80 mb-8 sm:mb-10 max-w-2xl mx-auto">
-              We&apos;re putting the finishing touches on something you&apos;re
-              going to love.
+              Download Finni AI on the Google Play Store and start making
+              sense of your money today.
             </p>
-            <button
-              type="button"
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 backgroundColor: "#0A0F1E",
                 color: "#ffffff",
@@ -29,13 +33,14 @@ export default function CTABanner() {
                 padding: "16px 40px",
                 borderRadius: "999px",
                 border: "none",
-                cursor: "default",
+                cursor: "pointer",
                 boxShadow: "none",
+                display: "inline-block",
+                textDecoration: "none",
               }}
-              aria-disabled="true"
             >
-              Coming Soon
-            </button>
+              Get it on Google Play
+            </a>
           </div>
           <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-2xl" />
           <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-3xl" />

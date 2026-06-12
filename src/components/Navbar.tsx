@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { PLAY_STORE_URL } from "@/lib/links";
 
 export default function Navbar() {
   return (
@@ -18,13 +19,14 @@ export default function Navbar() {
             priority
           />
         </div>
-        <button
-          type="button"
-          className="btn-coming-soon px-4 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base"
-          aria-disabled="true"
+        <a
+          href={PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-download px-4 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base"
         >
-          Coming Soon
-        </button>
+          Get the App
+        </a>
       </div>
     </nav>
   );

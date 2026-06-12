@@ -1,4 +1,5 @@
 import ChatMockup from './ChatMockup'
+import { PLAY_STORE_URL } from '@/lib/links'
 
 export default function Hero() {
   return (
@@ -13,13 +14,16 @@ export default function Hero() {
           <p style={{ fontSize: '18px', color: '#8892A4', lineHeight: '1.7', marginBottom: '40px', maxWidth: '480px' }}>
             Finni AI is your personal money buddy. Just tell it what you spent — it handles the rest. No confusing charts. No boring spreadsheets. Just you and your money, finally on the same team.
           </p>
-          <button
-            className="btn-coming-soon"
-            style={{ fontSize: '16px', padding: '16px 40px', display: 'block', marginBottom: '16px' }}
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-download"
+            style={{ fontSize: '16px', padding: '16px 40px', marginBottom: '16px' }}
           >
-            Coming Soon
-          </button>
-          <p style={{ color: '#8892A4', fontSize: '14px' }}>Be the first to know when we launch.</p>
+            Get it on Google Play
+          </a>
+          <p style={{ color: '#8892A4', fontSize: '14px', marginTop: '16px' }}>Now available on Android. iOS coming soon.</p>
         </div>
 
         {/* Right col */}
