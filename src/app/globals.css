@@ -2,101 +2,583 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ──────────────────────────────────────────────────────────────
+   Markopolo Design System tokens (ported) + Finni brand layer.
+   Fonts are provided by next/font (see layout.tsx) and mapped onto
+   the --font-* aliases below.
+   ────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Type families (next/font variables) ─────────────────────── */
+  --font-display: var(--font-space-grotesk), "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: var(--font-plus-jakarta), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Type scale */
+  --text-2xs: 0.6875rem;
+  --text-xs:  0.75rem;
+  --text-sm:  0.875rem;
+  --text-md:  1rem;
+  --text-lg:  1.125rem;
+  --text-xl:  1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-stat: 3.5rem;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  --lh-tight: 1.1;
+  --lh-snug: 1.28;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.65;
+
+  --ls-tight: -0.02em;
+  --ls-snug: -0.01em;
+  --ls-normal: 0;
+  --ls-wide: 0.04em;
+  --ls-caps: 0.08em;
+
+  /* ── Ink / neutral surfaces (dark) ───────────────────────────── */
+  --mk-ink-950: #06090F;
+  --mk-ink-900: #0A0E1A;
+  --mk-ink-850: #0E1424;
+  --mk-ink-800: #131A2E;
+  --mk-ink-750: #18223B;
+  --mk-ink-700: #1F2B47;
+  --mk-ink-600: #2A3859;
+  --mk-ink-500: #3A4A70;
+
+  --mk-slate-400: #64748B;
+  --mk-slate-300: #94A3B8;
+  --mk-slate-200: #C3CEDF;
+  --mk-slate-100: #E4EAF4;
+  --mk-white:     #F7FAFF;
+
+  /* ── Brand — Markopolo Violet ────────────────────────────────── */
+  --mk-violet-700: #4A2FC0;
+  --mk-violet-600: #5B3FD6;
+  --mk-violet-500: #7C5CFC;
+  --mk-violet-400: #9D85FF;
+  --mk-violet-300: #C3B4FF;
+  --mk-violet-soft: rgba(124, 92, 252, 0.14);
+  --mk-violet-glow: rgba(124, 92, 252, 0.45);
+
+  /* ── Semantic hues ───────────────────────────────────────────── */
+  --mk-emerald-600: #059669;
+  --mk-emerald-500: #10B981;
+  --mk-emerald-400: #34D399;
+  --mk-emerald-soft: rgba(16, 185, 129, 0.14);
+
+  --mk-red-600: #DC2626;
+  --mk-red-500: #EF4444;
+  --mk-red-400: #F87171;
+  --mk-red-soft: rgba(239, 68, 68, 0.15);
+
+  --mk-amber-600: #D97706;
+  --mk-amber-500: #F59E0B;
+  --mk-amber-400: #FBBF24;
+  --mk-amber-soft: rgba(245, 158, 11, 0.15);
+
+  --mk-blue-500: #3B82F6;
+  --mk-blue-400: #60A5FA;
+  --mk-blue-soft: rgba(59, 130, 246, 0.15);
+
+  --mk-cyan-500: #06B6D4;
+  --mk-cyan-400: #22D3EE;
+
+  /* ── Channel accents ─────────────────────────────────────────── */
+  --mk-ch-email:    #7C5CFC;
+  --mk-ch-sms:      #22D3EE;
+  --mk-ch-whatsapp: #25D366;
+  --mk-ch-voice:    #FB923C;
+
+  /* ── Gradients ───────────────────────────────────────────────── */
+  --mk-grad-brand:  linear-gradient(135deg, #7C5CFC 0%, #5B3FD6 100%);
+  --mk-grad-aurora: linear-gradient(120deg, #7C5CFC 0%, #4F8CFF 48%, #22D3EE 100%);
+  --mk-grad-pass:   linear-gradient(135deg, #34D399 0%, #10B981 100%);
+  --mk-grad-fail:   linear-gradient(135deg, #FB7185 0%, #EF4444 100%);
+
+  /* ── Semantic aliases ────────────────────────────────────────── */
+  --bg-app:        var(--mk-ink-950);
+  --surface-1:     var(--mk-ink-900);
+  --surface-2:     var(--mk-ink-850);
+  --surface-3:     var(--mk-ink-800);
+  --surface-inset: var(--mk-ink-800);
+
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.13);
+  --border-brand:  rgba(124, 92, 252, 0.45);
+
+  --text-1: var(--mk-white);
+  --text-2: var(--mk-slate-300);
+  --text-3: var(--mk-slate-400);
+  --text-on-brand: #FFFFFF;
+
+  --brand:        var(--mk-violet-500);
+  --brand-strong: var(--mk-violet-600);
+  --brand-soft:   var(--mk-violet-soft);
+
+  --success: var(--mk-emerald-500);
+  --success-soft: var(--mk-emerald-soft);
+  --danger:  var(--mk-red-500);
+  --danger-soft: var(--mk-red-soft);
+  --warning: var(--mk-amber-500);
+  --warning-soft: var(--mk-amber-soft);
+  --info:    var(--mk-blue-500);
+  --info-soft: var(--mk-blue-soft);
+
+  --focus-ring: 0 0 0 3px rgba(124, 92, 252, 0.5);
+
+  /* ── Spacing / radii / shadows / motion ──────────────────────── */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px;
+
+  --radius-xs: 6px;  --radius-sm: 8px;  --radius-md: 12px; --radius-lg: 16px;
+  --radius-xl: 22px; --radius-2xl: 28px; --radius-pill: 999px;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 8px 28px rgba(0, 0, 0, 0.40);
+  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.50);
+  --shadow-brand: 0 12px 36px rgba(91, 63, 214, 0.40);
+  --shadow-glow-pass: 0 0 0 1px var(--mk-emerald-soft), 0 8px 30px rgba(16,185,129,0.18);
+  --shadow-glow-fail: 0 0 0 1px var(--mk-red-soft), 0 8px 30px rgba(239,68,68,0.20);
+  --inset-hairline: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+  --dur-slow: 480ms;
+
+  --container-max: 1200px;
+  --sidebar-w: 248px;
 }
+
+/* ──────────────────────────────────────────────────────────────
+   Finni brand layer — softer, friendlier dark theme on the tokens.
+   ────────────────────────────────────────────────────────────── */
+:root {
+  --finni-bg:        #070A12;
+  --finni-bg-2:      #0B1020;
+  --finni-surface:   #0E1426;
+  --finni-surface-2: #131A30;
+  --finni-hairline:  rgba(255, 255, 255, 0.08);
+  --finni-hairline-strong: rgba(255, 255, 255, 0.14);
+
+  --finni-mint:      #3FE0C0;
+  --finni-mint-soft: rgba(63, 224, 192, 0.14);
+  --finni-mint-glow: rgba(63, 224, 192, 0.40);
+
+  --finni-grad:      linear-gradient(125deg, #9D85FF 0%, #7C5CFC 42%, #3FE0C0 120%);
+  --finni-grad-soft: linear-gradient(125deg, rgba(124,92,252,0.18), rgba(63,224,192,0.14));
+
+  --bg-app:    var(--finni-bg);
+  --surface-1: var(--finni-bg-2);
+  --surface-2: var(--finni-surface);
+  --surface-3: var(--finni-surface-2);
+  --border-subtle: var(--finni-hairline);
+  --border-strong: var(--finni-hairline-strong);
+
+  /* Baked-in default accent ramp. The design applies this at runtime
+     (TWEAK_DEFAULTS accent → light shade #9D85FF) so eyebrow labels, the
+     violet stat numerals, the primary-button gradient, and the brand
+     shadow all use #9D85FF. Set here so the site matches that default. */
+  --mk-violet-300: #9D85FF;
+  --mk-grad-brand: linear-gradient(135deg, #9D85FF 0%, #7C5CFC 100%);
+  --shadow-brand: 0 12px 36px rgba(124, 92, 252, 0.40);
+
+  --finni-container: 1160px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: #0A1628;
-  color: #ffffff;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin: 0;
+  background: var(--finni-bg);
+  color: var(--text-1);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
-@keyframes gradientShift {
-  0%   { opacity: 0.6; transform: scale(1) translate(0, 0); }
-  50%  { opacity: 1;   transform: scale(1.1) translate(-2%, 2%); }
-  100% { opacity: 0.6; transform: scale(1) translate(0, 0); }
-}
-
-@keyframes gradientShift2 {
-  0%   { opacity: 0.4; transform: scale(1) translate(0, 0); }
-  50%  { opacity: 0.8; transform: scale(1.15) translate(2%, -2%); }
-  100% { opacity: 0.4; transform: scale(1) translate(0, 0); }
-}
-
-.bg-glow-1 {
+/* Two faint fixed glows — violet top-right, mint top-left */
+body::before {
+  content: "";
   position: fixed;
-  top: -15%;
-  right: -5%;
-  width: 55vw;
-  height: 55vw;
-  background: radial-gradient(ellipse, rgba(0, 230, 118, 0.12) 0%, rgba(0, 100, 255, 0.2) 40%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  inset: 0;
   z-index: 0;
-  animation: gradientShift 8s ease-in-out infinite;
-}
-
-.bg-glow-2 {
-  position: fixed;
-  top: 20%;
-  left: -10%;
-  width: 40vw;
-  height: 40vw;
-  background: radial-gradient(ellipse, rgba(0, 80, 200, 0.15) 0%, transparent 70%);
-  border-radius: 50%;
   pointer-events: none;
-  z-index: 0;
-  animation: gradientShift2 10s ease-in-out infinite;
+  background:
+    radial-gradient(720px 520px at 88% -8%, rgba(124, 92, 252, 0.20), transparent 60%),
+    radial-gradient(680px 520px at 6% -4%, rgba(63, 224, 192, 0.12), transparent 58%);
 }
 
-.bg-glow-3 {
-  position: fixed;
-  bottom: 10%;
-  right: 20%;
-  width: 30vw;
-  height: 30vw;
-  background: radial-gradient(ellipse, rgba(0, 230, 118, 0.06) 0%, transparent 60%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  animation: gradientShift 12s ease-in-out infinite reverse;
+.finni-root { position: relative; z-index: 1; }
+
+::selection { background: rgba(124, 92, 252, 0.35); color: #fff; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ── Layout helpers ───────────────────────────────────────────── */
+.finni-container {
+  width: 100%;
+  max-width: var(--finni-container);
+  margin: 0 auto;
+  padding: 0 28px;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+.finni-section { padding: clamp(72px, 11vh, 132px) 0; position: relative; }
+.finni-section--tight { padding: clamp(48px, 7vh, 84px) 0; }
+
+/* ── Eyebrow label ────────────────────────────────────────────── */
+.finni-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--mk-violet-300);
+}
+.finni-eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--mint, var(--finni-mint)), transparent);
+}
+.finni-eyebrow--center::before { display: none; }
+
+/* ── Display type ─────────────────────────────────────────────── */
+.finni-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+  line-height: 1.04;
+  color: var(--text-1);
+  margin: 0;
+}
+.finni-h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
+.finni-h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+.finni-h3 { font-size: clamp(1.5rem, 2.4vw, 2.1rem); }
+
+.finni-gradient-text {
+  background: var(--finni-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 220% auto;
+  animation: gradFlow 7s linear infinite;
+}
+@keyframes gradFlow { to { background-position: 220% center; } }
+
+.finni-lead {
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  line-height: var(--lh-relaxed);
+  color: var(--text-2);
+  max-width: 56ch;
+  margin: 0;
 }
 
-.animate-fade-up {
-  animation: fadeInUp 0.6s ease forwards;
+.finni-muted { color: var(--text-3); }
+.finni-mint-text { color: var(--finni-mint); }
+
+/* ── Pill / chip ──────────────────────────────────────────────── */
+.finni-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 15px 8px 13px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--finni-hairline);
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  backdrop-filter: blur(8px);
 }
 
-.feature-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
+/* ── Surface card (Finni flavored) ────────────────────────────── */
+.finni-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)) ,
+    var(--surface-2);
+  border: 1px solid var(--finni-hairline);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card), var(--inset-hairline);
+  padding: 28px;
+  transition: transform var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+.finni-card--hover:hover {
+  transform: translateY(-4px);
+  border-color: var(--finni-hairline-strong);
+  box-shadow: var(--shadow-lg);
 }
 
-.feature-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 40px rgba(0, 230, 118, 0.15), 0 20px 40px rgba(0, 0, 0, 0.4);
+/* ── Nav ──────────────────────────────────────────────────────── */
+.finni-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: background var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out),
+              backdrop-filter var(--dur-base);
+  border-bottom: 1px solid transparent;
+}
+.finni-nav--scrolled {
+  background: rgba(7, 10, 18, 0.72);
+  backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid var(--finni-hairline);
+}
+.finni-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+.finni-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.finni-nav__link {
+  padding: 9px 15px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-2);
+  transition: color var(--dur-fast), background var(--dur-fast);
+}
+.finni-nav__link:hover { color: var(--text-1); background: rgba(255,255,255,0.05); }
+.finni-nav__link--active { color: var(--text-1); }
+
+/* ── Logo / wordmark ──────────────────────────────────────────── */
+.finni-logo { display: inline-flex; align-items: center; gap: 11px; }
+.finni-logo__mark {
+  width: 34px; height: 34px;
+  border-radius: 11px;
+  display: grid; place-items: center;
+  background: var(--finni-grad);
+  box-shadow: 0 6px 18px rgba(124, 92, 252, 0.45), var(--inset-hairline);
+  flex: none;
+}
+.finni-logo__word {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 1.42rem;
+  letter-spacing: -0.03em;
+  color: var(--text-1);
 }
 
-.btn-download {
-  background-color: #00E676;
-  color: #0A0F1E;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
+/* ── Phone mockup ─────────────────────────────────────────────── */
+.finni-phone {
+  position: relative;
+  width: 320px;
+  border-radius: 46px;
+  padding: 13px;
+  background: linear-gradient(160deg, #1b2238, #0c1120);
+  border: 1px solid var(--finni-hairline-strong);
+  box-shadow:
+    0 40px 90px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.finni-phone__screen {
+  position: relative;
+  border-radius: 34px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a0f1e 0%, #0c1326 100%);
+  aspect-ratio: 9 / 19.2;
+  display: flex;
+  flex-direction: column;
+}
+.finni-phone__notch {
+  position: absolute;
+  top: 12px; left: 50%; transform: translateX(-50%);
+  width: 108px; height: 26px;
+  background: #05070d;
   border-radius: 999px;
-  box-shadow: 0 0 20px rgba(0, 230, 118, 0.5), 0 0 40px rgba(0, 230, 118, 0.25);
-  transition: box-shadow 0.3s ease;
+  z-index: 5;
 }
 
-.btn-download:hover {
-  box-shadow: 0 0 30px rgba(0, 230, 118, 0.7), 0 0 60px rgba(0, 230, 118, 0.35);
+/* ── Chat bubbles ─────────────────────────────────────────────── */
+.finni-bubble {
+  max-width: 78%;
+  padding: 11px 14px;
+  font-size: 14px;
+  line-height: 1.42;
+  border-radius: 18px;
+}
+.reveal-on .finni-bubble { animation: bubbleIn 0.45s var(--ease-out) both; }
+.finni-bubble--user {
+  align-self: flex-end;
+  background: var(--finni-grad);
+  color: #fff;
+  border-bottom-right-radius: 6px;
+  box-shadow: 0 6px 18px rgba(124, 92, 252, 0.35);
+}
+.finni-bubble--bot {
+  align-self: flex-start;
+  background: var(--surface-3);
+  color: var(--text-1);
+  border: 1px solid var(--finni-hairline);
+  border-bottom-left-radius: 6px;
+}
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* typing dots */
+.finni-typing { display: inline-flex; gap: 4px; align-items: center; }
+.finni-typing span {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--text-3);
+  animation: typing 1.1s infinite ease-in-out;
+}
+.finni-typing span:nth-child(2) { animation-delay: 0.18s; }
+.finni-typing span:nth-child(3) { animation-delay: 0.36s; }
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ── Stat numerals ────────────────────────────────────────────── */
+.finni-stat {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+  line-height: 1;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.finni-footer {
+  border-top: 1px solid var(--finni-hairline);
+  background: linear-gradient(180deg, transparent, rgba(124,92,252,0.05));
+  padding: 64px 0 40px;
+}
+
+/* ── App store buttons ────────────────────────────────────────── */
+.finni-stores { display: flex; gap: 12px; flex-wrap: wrap; }
+.finni-store {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 10px 18px; border-radius: 14px;
+  border: 1px solid var(--finni-hairline-strong);
+  background: rgba(255, 255, 255, 0.04);
+  min-width: 172px;
+  transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast), background var(--dur-fast);
+}
+.finni-store small {
+  display: block; font-size: 10px; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--text-3); line-height: 1.35;
+}
+.finni-store strong {
+  display: block; font-family: var(--font-display);
+  font-size: 1.04rem; font-weight: 700; color: var(--text-1); line-height: 1.15;
+}
+.finni-store--live { cursor: pointer; }
+.finni-store--live:hover { transform: translateY(-2px); border-color: var(--border-brand); background: rgba(124, 92, 252, 0.09); }
+.finni-store--soon { opacity: 0.62; cursor: default; }
+.finni-store--soon strong { color: var(--text-2); }
+.finni-store__glyph { width: 26px; height: 26px; flex: none; display: grid; place-items: center; }
+
+/* ── Futuristic animated aurora background ─────────────────────── */
+.finni-aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.finni-aurora span { position: absolute; border-radius: 50%; filter: blur(80px); }
+.finni-aurora .a1 {
+  width: 520px; height: 520px; top: -190px; right: -70px; opacity: 0.40;
+  background: radial-gradient(circle, var(--brand), transparent 65%);
+  animation: auroraA 19s var(--ease-out) infinite alternate;
+}
+.finni-aurora .a2 {
+  width: 440px; height: 440px; top: 60px; left: -150px; opacity: 0.26;
+  background: radial-gradient(circle, var(--finni-mint), transparent 65%);
+  animation: auroraB 24s var(--ease-out) infinite alternate;
+}
+@keyframes auroraA { to { transform: translate(-70px, 50px) scale(1.18); } }
+@keyframes auroraB { to { transform: translate(90px, -40px) scale(1.12); } }
+
+/* ── Stats card: grid sheen + glint + floating orbs ───────────── */
+.finni-stats-card { position: relative; overflow: hidden; }
+.finni-stats-card::before {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(var(--finni-hairline) 1px, transparent 1px),
+    linear-gradient(90deg, var(--finni-hairline) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(120% 130% at 50% 0%, #000, transparent 72%);
+  mask-image: radial-gradient(120% 130% at 50% 0%, #000, transparent 72%);
+  opacity: 0.55;
+}
+.finni-stats-card::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 48%; z-index: 1;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.07) 50%, transparent 65%);
+  transform: translateX(-170%);
+  animation: sheen 7.5s ease-in-out infinite;
+}
+@keyframes sheen { 0%, 16% { transform: translateX(-170%); } 58%, 100% { transform: translateX(270%); } }
+.finni-stats-card > * { position: relative; z-index: 2; }
+.finni-orb {
+  position: absolute; border-radius: 50%; background: var(--finni-grad);
+  opacity: 0.55; filter: blur(0.5px); box-shadow: 0 0 22px var(--mk-violet-glow);
+  animation: floaty 8s ease-in-out infinite; z-index: 1;
+}
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+/* ── Scroll reveal ────────────────────────────────────────────── */
+.reveal-on .reveal { opacity: 0; transform: translateY(22px); }
+.reveal-on .reveal.is-in {
+  opacity: 1; transform: none;
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+/* ── Grids ────────────────────────────────────────────────────── */
+.finni-grid { display: grid; gap: 20px; }
+@media (min-width: 560px) {
+  .finni-grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .finni-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 720px) { .finni-grid--2 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 880px) { .finni-grid--3 { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 960px) { .finni-grid--4 { grid-template-columns: repeat(4, 1fr); } }
+
+.finni-divider { height: 1px; background: var(--finni-hairline); border: 0; margin: 0; }
+
+/* icon chip */
+.finni-icon {
+  width: 46px; height: 46px;
+  border-radius: 13px;
+  display: grid; place-items: center;
+  background: var(--finni-grad-soft);
+  border: 1px solid var(--finni-hairline);
+  color: var(--mk-violet-300);
+  flex: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal-on .reveal { opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* Responsive nav: hide links on small screens (keep CTA) */
+@media (max-width: 720px) {
+  .finni-nav__links { display: none; }
+  .finni-section { padding: 64px 0; }
 }

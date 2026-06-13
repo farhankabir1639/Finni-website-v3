@@ -1,17 +1,32 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-plus-jakarta",
   display: "swap",
 });
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Finni AI — Your Personal Money Buddy",
+  title: "Finni — Your money, finally on speaking terms.",
   description:
-    "Finni AI is the personal finance app that feels like texting a friend. Log expenses in plain English, get smart insights, and finally understand your money. Now on Google Play.",
+    "Finni is the personal finance app that feels like texting a friend. Log spending in plain English and get calm, clear answers — no spreadsheets. Now live on Google Play.",
   keywords: [
     "personal finance app",
     "AI budgeting",
@@ -20,18 +35,18 @@ export const metadata: Metadata = {
     "Finni AI",
   ],
   openGraph: {
-    title: "Finni AI — Your Personal Money Buddy",
+    title: "Finni — Your money, finally on speaking terms.",
     description:
-      "No boring spreadsheets. No confusing charts. Just you and your money, finally on the same team.",
+      "The personal finance app that feels like texting a friend. Now live on Google Play, iOS coming soon.",
     url: "https://heyfinni.com",
-    siteName: "Finni AI",
+    siteName: "Finni",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Finni AI — Your Personal Money Buddy",
+    title: "Finni — Your money, finally on speaking terms.",
     description:
-      "The AI finance app that feels like texting a friend. Now on Google Play.",
+      "The AI finance app that feels like texting a friend. Now live on Google Play.",
   },
   metadataBase: new URL("https://heyfinni.com"),
 };
@@ -42,12 +57,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={plusJakarta.variable}>
-      <body className="min-h-screen font-sans text-white">
-        <div className="bg-glow-1" />
-        <div className="bg-glow-2" />
-        <div className="bg-glow-3" />
-        {children}
+    <html
+      lang="en"
+      className={`${plusJakarta.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+    >
+      <body>
+        <div className="finni-root">{children}</div>
       </body>
     </html>
   );
