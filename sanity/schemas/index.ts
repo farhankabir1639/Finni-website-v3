@@ -1,3 +1,5 @@
 import privacyPolicy from "./privacyPolicy";
+import author from "./author";
+import post from "./post";
 
-export const schemaTypes = [privacyPolicy];
+export const schemaTypes = [privacyPolicy, author, post];

@@ -7,6 +7,7 @@ import { Logo, Button } from "./ui";
 const links = [
   { id: "features", label: "Features", href: "/features" },
   { id: "how", label: "How it works", href: "/how" },
+  { id: "blog", label: "Blog", href: "/blog" },
 ];
 
 export function Nav({ active = "home" }: { active?: string }) {

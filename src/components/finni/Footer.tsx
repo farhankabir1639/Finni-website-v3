@@ -7,6 +7,7 @@ const cols: { h: string; items: [string, string][] }[] = [
     items: [
       ["Features", "/features"],
       ["How it works", "/how"],
+      ["Blog", "/blog"],
       ["Get the app", "/#download"],
     ],
   },
