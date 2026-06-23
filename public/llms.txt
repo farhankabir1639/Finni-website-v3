@@ -1,0 +1,100 @@
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: Anchor Browser
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: ProRataInc
+Allow: /
+
+User-agent: Novellum AI Crawl
+Allow: /
+
+User-agent: Grok Web Crawler
+Allow: /
+
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: BingBot
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /api/
+
+# Here are 4 comment lines for an llms.txt file:
+# Finni AI Finance Tracker helps users manage finances via chat.
+# Assistants can expect to track expenses and provide insights.
+# Finni offers personalized budget recommendations and goal tracking.
+
+# Primary: https://www.heyfinni.com
+# Tag script: https://shop.daamdekhi.com/aeo/tag.js
+# App developer site: https://www.heyfinni.com

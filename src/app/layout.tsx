@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -63,6 +64,25 @@ export default function RootLayout({
     >
       <body>
         <div className="finni-root">{children}</div>
+
+        {/* daamdekhi AEO tracking tag — detects human visitors and JS-capable AI crawlers */}
+        <Script
+          src="https://shop.daamdekhi.com/aeo/tag.js"
+          data-site="4N34mgvy"
+          strategy="afterInteractive"
+        />
+        {/* No-script pixel so AI crawlers that don't run JavaScript are still detected */}
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://shop.daamdekhi.com/aeo/tag/collect.gif?site=4N34mgvy"
+            height="1"
+            width="1"
+            alt=""
+            style={{ position: "absolute", left: "-9999px" }}
+            referrerPolicy="no-referrer"
+          />
+        </noscript>
       </body>
     </html>
   );
