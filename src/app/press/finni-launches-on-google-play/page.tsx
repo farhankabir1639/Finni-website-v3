@@ -110,12 +110,6 @@ export default function Page() {
             be great with money.&rdquo;
           </p>
 
-          <p style={para}>
-            &ldquo;Plain-language logging is only useful if the intelligence behind it is genuinely helpful,&rdquo; said
-            Farshid A, CTO of Finni. &ldquo;Finni categorizes spending accurately the moment it lands and turns it into
-            insights and recommendations people can actually act on — privately and securely.&rdquo;
-          </p>
-
           <h2 className="finni-display" style={h2}>
             Availability
           </h2>
