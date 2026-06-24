@@ -8,6 +8,7 @@ const cols: { h: string; items: [string, string][] }[] = [
       ["Features", "/features"],
       ["How it works", "/how"],
       ["Blog", "/blog"],
+      ["About", "/about"],
       ["Get the app", "/#download"],
     ],
   },
