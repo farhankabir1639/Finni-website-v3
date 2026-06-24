@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { orgLd } from "@/lib/company";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -64,6 +65,10 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
+        />
         <div className="finni-root">{children}</div>
 
         {/* daamdekhi AEO tracking tag — detects human visitors and JS-capable AI crawlers.
