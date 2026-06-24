@@ -9,6 +9,7 @@ const cols: { h: string; items: [string, string][] }[] = [
       ["How it works", "/how"],
       ["Blog", "/blog"],
       ["About", "/about"],
+      ["Press", "/press/finni-launches-on-google-play"],
       ["Get the app", "/#download"],
     ],
   },
