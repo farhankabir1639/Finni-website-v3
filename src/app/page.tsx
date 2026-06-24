@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import { HomePage } from "@/components/finni/HomePage";
 import { PLAY_STORE_URL } from "@/lib/links";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { url: "/" },
+};
 
 const faqLd = {
   "@context": "https://schema.org",

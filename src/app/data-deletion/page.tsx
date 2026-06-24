@@ -1,3 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Request Data Deletion — Finni",
+  description: "How to request deletion of your Finni account and all associated data.",
+  alternates: { canonical: "/data-deletion" },
+  openGraph: {
+    title: "Request Data Deletion — Finni",
+    description: "How to request deletion of your Finni account and all associated data.",
+    url: "/data-deletion",
+  },
+};
+
 export default function DataDeletion() {
   return (
     <main style={{ minHeight: '100vh', padding: '80px 32px', maxWidth: '720px', margin: '0 auto' }}>

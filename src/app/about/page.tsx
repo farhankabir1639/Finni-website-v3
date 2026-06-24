@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: "About — Finni",
   description:
     "About Finni — the personal finance app that feels like texting a friend. Founders, offices, and how to get in touch.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About — Finni",
+    description:
+      "About Finni — the personal finance app that feels like texting a friend. Founders, offices, and how to get in touch.",
+    url: "/about",
+  },
 };
 
 const LINKEDIN = "https://www.linkedin.com/company/finni-ai/";

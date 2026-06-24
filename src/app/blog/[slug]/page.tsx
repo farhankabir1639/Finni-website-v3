@@ -21,10 +21,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: `${post.title} — Finni Blog`,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${params.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
+      url: `/blog/${params.slug}`,
       images: post.coverImageUrl ? [post.coverImageUrl] : undefined,
     },
   };

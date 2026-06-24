@@ -34,13 +34,15 @@ export const metadata: Metadata = {
     "money management",
     "Finni AI",
   ],
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Finni — Your money, finally on speaking terms.",
     description:
       "The personal finance app that feels like texting a friend. Now live on Google Play, iOS coming soon.",
-    url: "https://heyfinni.com",
+    url: "https://www.heyfinni.com",
     siteName: "Finni",
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
     description:
       "The AI finance app that feels like texting a friend. Now live on Google Play.",
   },
-  metadataBase: new URL("https://heyfinni.com"),
+  metadataBase: new URL("https://www.heyfinni.com"),
 };
 
 export default function RootLayout({

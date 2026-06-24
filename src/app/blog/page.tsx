@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   title: "Blog — Finni",
   description:
     "Calm, jargon-free takes on spending, saving, and the psychology of money — written the way Finni talks.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "The Finni Blog",
+    description:
+      "Calm, jargon-free takes on spending, saving, and the psychology of money — written the way Finni talks.",
+    url: "/blog",
+  },
 };
 
 export default async function Page() {

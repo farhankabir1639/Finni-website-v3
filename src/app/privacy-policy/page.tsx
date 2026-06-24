@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { client } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy — Finni",
+  description: "How Finni collects, uses, and protects your data.",
+  alternates: { canonical: "/privacy-policy" },
+  openGraph: {
+    title: "Privacy Policy — Finni",
+    description: "How Finni collects, uses, and protects your data.",
+    url: "/privacy-policy",
+  },
+};
 
 const PRIVACY_QUERY = `*[_type == "privacyPolicy"][0]{
   title,
