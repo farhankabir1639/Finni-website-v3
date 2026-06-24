@@ -6,6 +6,7 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Button, Eyebrow, FinniMark, Icon, StoreButtons } from "./ui";
 import { useReveal } from "./useReveal";
+import { HOME_FAQ } from "@/lib/faq";
 
 type ChatMsg = { from: "user" | "bot"; text?: string; card?: React.ReactNode; delay?: number };
 
@@ -752,10 +753,39 @@ export function HomePage() {
       <Features />
       <Stats />
       <Testimonials />
+      <Faq />
       <FinalCTA />
       <TldrSummary />
       <Footer />
     </>
+  );
+}
+
+/* Visible FAQ with question-style headings (matches the FAQPage JSON-LD). */
+function Faq() {
+  return (
+    <section className="finni-section" id="faq">
+      <div className="finni-container" style={{ maxWidth: 780 }}>
+        <div className="reveal" style={{ textAlign: "center", marginBottom: 44 }}>
+          <Eyebrow center>FAQ</Eyebrow>
+          <h2 className="finni-display finni-h2" style={{ margin: "16px 0 0" }}>
+            Frequently asked questions
+          </h2>
+        </div>
+        <div className="reveal" style={{ display: "grid", gap: 12 }}>
+          {HOME_FAQ.map((item) => (
+            <div key={item.q} className="finni-card" style={{ padding: "20px 24px" }}>
+              <h3 className="finni-display" style={{ fontSize: "1.1rem", marginBottom: 8 }}>
+                {item.q}
+              </h3>
+              <p style={{ color: "var(--text-2)", fontSize: "var(--text-sm)", lineHeight: "var(--lh-relaxed)", margin: 0 }}>
+                {item.a}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
