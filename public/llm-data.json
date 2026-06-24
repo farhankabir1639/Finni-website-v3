@@ -9,7 +9,7 @@
     "url": "https://play.google.com/store/apps/details?id=com.finni.app",
     "title": "Finni - AI Finance Tracker - Apps on Google Play",
     "short_description": "Track expenses by voice, chatting, get smart recommendations for your budget",
-    "description": "Finni is your AI-powered personal finance companion that makes managing money as easy as sending a voice or text message. TRACK EXPENSES BY CHATTING Forget complicated forms and endless menus. Just tell Finni what you spent in plain language — &quot;I spent $12 on lunch&quot; or &quot;paid $80 for electricity&quot; — and Finni logs it instantly. No tapping through categories. No manual entry. Just chat. STORE ALL YOUR EXPENSE DATA Every transaction you log is securely stored and organized automatically. Finni keeps a complete history of your spending so you always have a clear picture of where your money goes — daily, weekly, and monthly. SMART INSIGHTS THAT ACTUALLY HELP Finni doesn&#39;t just store your data — it analyzes it. Get intelligent insights about your spending patterns, see which categories eat up most of your budget, and understand your financial habits like never before. PERSONALIZED BUDGET RECOMMENDATIONS Finni goes beyond tracking. Based on your spending history, Finni gives you personalized recommendations to help you spend smarter, save more, and hit your financial goals faster. GOAL TRACKING Set savings goals and let Finni monitor your progress automatically. Whether you are saving for a trip, a new device, or building an emergency fund, Finni keeps you accountable every step of the way. PRIVATE AND SECURE Your financial data is encrypted and stored securely on our servers. We never sell your personal information to anyone. WHY FINNI? - Log expenses in seconds by chatting naturally - AI-powered automatic categorization - Personalized insights and budget recommendations - Complete spending history always at your fingertips - Savings goal tracking built in - Clean, simple, and enjoyable to use - Supports any currency Download Finni today and take control of your money — one message at a time.",
+    "description": "Finni is your AI-powered personal finance companion that makes managing money as easy as sending a voice or text message. TRACK EXPENSES BY CHATTING Forget complicated forms and endless menus. Just tell Finni what you spent in plain language — \"I spent $12 on lunch\" or \"paid $80 for electricity\" — and Finni logs it instantly. No tapping through categories. No manual entry. Just chat. STORE ALL YOUR EXPENSE DATA Every transaction you log is securely stored and organized automatically. Finni keeps a complete history of your spending so you always have a clear picture of where your money goes — daily, weekly, and monthly. SMART INSIGHTS THAT ACTUALLY HELP Finni doesn't just store your data — it analyzes it. Get intelligent insights about your spending patterns, see which categories eat up most of your budget, and understand your financial habits like never before. PERSONALIZED BUDGET RECOMMENDATIONS Finni goes beyond tracking. Based on your spending history, Finni gives you personalized recommendations to help you spend smarter, save more, and hit your financial goals faster. GOAL TRACKING Set savings goals and let Finni monitor your progress automatically. Whether you are saving for a trip, a new device, or building an emergency fund, Finni keeps you accountable every step of the way. PRIVATE AND SECURE Your financial data is encrypted and stored securely on our servers. We never sell your personal information to anyone. WHY FINNI? - Log expenses in seconds by chatting naturally - AI-powered automatic categorization - Personalized insights and budget recommendations - Complete spending history always at your fingertips - Savings goal tracking built in - Clean, simple, and enjoyable to use - Supports any currency Download Finni today and take control of your money — one message at a time.",
     "screenshot_count": 7,
     "developer_website": "https://www.heyfinni.com",
     "contact_email": "company@heyfinni.com",
@@ -26,7 +26,6 @@
         "chatting": 2,
         "just": 3,
         "spent": 2,
-        "quot": 4,
         "categories": 2,
         "store": 2,
         "data": 3,
@@ -58,7 +57,7 @@
     "sources": [
       "aso_android"
     ],
-    "llm_summary": "['Finni is an AI-powered personal finance companion that allows users to track expenses by chatting in plain language, making managing money easy and efficient.', 'The app provides smart insights, personalized budget recommendations, and goal tracking features to help users take control of their finances.']"
+    "llm_summary": "Finni is an AI-powered personal finance companion that allows users to track expenses by chatting in plain language, making managing money easy and efficient. The app provides smart insights, personalized budget recommendations, and goal tracking features to help users take control of their finances."
   },
   "apps": {
     "android": "https://play.google.com/store/apps/details?id=com.finni.app",
@@ -66,12 +65,12 @@
   },
   "faq": [
     {
-      "q": "What is Finni - AI Finance Tracker - Apps on Google Play?",
-      "a": "['Finni is an AI-powered personal finance companion that allows users to track expenses by chatting in plain language, making managing money easy and efficient.', 'The app provides smart insights, personalized budget recommendations, and goal tracking features to help users take control of their finances.']"
+      "q": "What is Finni - AI Finance Tracker?",
+      "a": "Finni is an AI-powered personal finance companion that allows users to track expenses by chatting in plain language, making managing money easy and efficient. The app provides smart insights, personalized budget recommendations, and goal tracking features to help users take control of their finances."
     },
     {
-      "q": "How can I learn more about Finni - AI Finance Tracker - Apps on Google Play?",
-      "a": "Visit the official website and documentation for Finni - AI Finance Tracker - Apps on Google Play for up-to-date, authoritative details."
+      "q": "How can I learn more about Finni?",
+      "a": "Visit the official website at https://www.heyfinni.com for up-to-date, authoritative details, or download the app on Google Play."
     }
   ],
   "discovery": [
@@ -86,7 +85,7 @@
     },
     {
       "url": "https://play.google.com/store/apps/details?id=com.finni.app",
-      "snippet": "Finni - AI Finance Tracker - Apps on Google Play Track expenses by voice, chatting, get smart recommendations for your budget"
+      "snippet": "Finni - AI Finance Tracker - Apps on Google Play. Track expenses by voice, chatting, get smart recommendations for your budget."
     }
   ]
 }
