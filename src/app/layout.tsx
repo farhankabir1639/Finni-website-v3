@@ -51,6 +51,26 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://heyfinni.com"),
 };
 
+// Organization schema. Only verified fields are included — address, telephone,
+// founder, sameAs (real social profiles), and aggregateRating are intentionally
+// omitted until real values are provided, to avoid fabricated structured data.
+const orgLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Finni",
+  legalName: "Finni Money, Inc.",
+  url: "https://www.heyfinni.com",
+  logo: "https://www.heyfinni.com/images/Finni_Logo_White_Text_1.png",
+  description:
+    "Finni is the personal finance app that feels like texting a friend. Log spending in plain English and get calm, clear answers — no spreadsheets. Now live on Google Play.",
+  email: "company@heyfinni.com",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    email: "company@heyfinni.com",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,6 +82,10 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
+        />
         <div className="finni-root">{children}</div>
 
         {/* daamdekhi AEO tracking tag — detects human visitors and JS-capable AI crawlers.
