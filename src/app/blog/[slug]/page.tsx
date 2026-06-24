@@ -7,6 +7,7 @@ import { Footer } from "@/components/finni/Footer";
 import { Icon } from "@/components/finni/ui";
 import { portableTextComponents } from "@/lib/portableText";
 import { getPost, getPostSlugs } from "@/lib/blog";
+import { breadcrumbLd } from "@/lib/breadcrumb";
 
 export const revalidate = 3600;
 
@@ -38,6 +39,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbLd([
+              { name: "Home", path: "/" },
+              { name: "Blog", path: "/blog" },
+              { name: post.title, path: `/blog/${params.slug}` },
+            ])
+          ),
+        }}
+      />
       <Nav active="blog" />
       <article className="finni-section finni-section--tight" style={{ paddingTop: 56 }}>
         <div className="finni-container" style={{ maxWidth: 760 }}>

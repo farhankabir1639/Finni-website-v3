@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HowPage } from "@/components/finni/HowPage";
+import { breadcrumbLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "How it works — Finni",
@@ -15,5 +16,20 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <HowPage />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbLd([
+              { name: "Home", path: "/" },
+              { name: "How it works", path: "/how" },
+            ])
+          ),
+        }}
+      />
+      <HowPage />
+    </>
+  );
 }

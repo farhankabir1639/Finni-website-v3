@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Request Data Deletion — Finni",
@@ -14,6 +15,17 @@ export const metadata: Metadata = {
 export default function DataDeletion() {
   return (
     <main style={{ minHeight: '100vh', padding: '80px 32px', maxWidth: '720px', margin: '0 auto' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbLd([
+              { name: 'Home', path: '/' },
+              { name: 'Request Data Deletion', path: '/data-deletion' },
+            ])
+          ),
+        }}
+      />
       <a href="/" style={{ color: '#00E676', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '40px', textDecoration: 'none' }}>
         ← Back to Finni AI
       </a>

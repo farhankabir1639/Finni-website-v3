@@ -4,6 +4,7 @@ import { Footer } from "@/components/finni/Footer";
 import { Button } from "@/components/finni/ui";
 import { PLAY_STORE_URL } from "@/lib/links";
 import { EMAIL, PHONE, LINKEDIN, FACEBOOK, team, offices, appLd } from "@/lib/company";
+import { breadcrumbLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "About — Finni",
@@ -42,6 +43,17 @@ export default function Page() {
     <>
       {/* Organization JSON-LD is rendered site-wide in the root layout. */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbLd([
+              { name: "Home", path: "/" },
+              { name: "About", path: "/about" },
+            ])
+          ),
+        }}
+      />
       <Nav />
       <header className="finni-section finni-section--tight" style={{ paddingTop: 56, textAlign: "center" }}>
         <div className="finni-container" style={{ maxWidth: 780 }}>

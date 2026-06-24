@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { EsHome } from "@/components/finni/EsHome";
 import { ES_FAQ } from "@/lib/esFaq";
+import { breadcrumbLd } from "@/lib/breadcrumb";
 
 const languages = {
   en: "/",
@@ -37,6 +38,17 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbLd([
+              { name: "Inicio", path: "/" },
+              { name: "Español", path: "/es" },
+            ])
+          ),
+        }}
+      />
       <EsHome />
     </>
   );

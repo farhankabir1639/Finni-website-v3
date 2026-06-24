@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { breadcrumbLd } from "@/lib/breadcrumb";
 import { client } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
@@ -60,6 +61,17 @@ export default async function PrivacyPolicyPage() {
 
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbLd([
+              { name: "Home", path: "/" },
+              { name: "Privacy Policy", path: "/privacy-policy" },
+            ])
+          ),
+        }}
+      />
       <div className="max-w-3xl mx-auto py-20 px-8">
         <Link
           href="/"

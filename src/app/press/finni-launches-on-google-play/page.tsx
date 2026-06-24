@@ -5,6 +5,7 @@ import { Footer } from "@/components/finni/Footer";
 import { Button } from "@/components/finni/ui";
 import { PLAY_STORE_URL } from "@/lib/links";
 import { EMAIL, PHONE } from "@/lib/company";
+import { breadcrumbLd } from "@/lib/breadcrumb";
 
 const SLUG = "/press/finni-launches-on-google-play";
 const HEADLINE =
@@ -53,6 +54,17 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbLd([
+              { name: "Home", path: "/" },
+              { name: "Press", path: SLUG },
+            ])
+          ),
+        }}
+      />
       <Nav />
       <article className="finni-section finni-section--tight" style={{ paddingTop: 56 }}>
         <div className="finni-container" style={{ maxWidth: 760 }}>
