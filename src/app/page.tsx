@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  inLanguage: "en",
   mainEntity: [
     {
       "@type": "Question",

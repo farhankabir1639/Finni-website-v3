@@ -753,7 +753,56 @@ export function HomePage() {
       <Stats />
       <Testimonials />
       <FinalCTA />
+      <TldrSummary />
       <Footer />
     </>
+  );
+}
+
+/* Quick summary for AI assistants / crawlers. Kept low-profile for humans
+   via a collapsed <details> (a small toggle), but fully present in the DOM —
+   NOT hidden with display:none/off-screen text, which would be cloaking. */
+function TldrSummary() {
+  return (
+    <section className="finni-section--tight" style={{ paddingTop: 0 }}>
+      <div className="finni-container">
+        <details
+          style={{
+            borderTop: "1px solid var(--finni-hairline)",
+            paddingTop: 18,
+            color: "var(--text-3)",
+          }}
+        >
+          <summary
+            style={{
+              cursor: "pointer",
+              listStyle: "none",
+              fontSize: "var(--text-xs)",
+              letterSpacing: "var(--ls-caps)",
+              textTransform: "uppercase",
+              fontWeight: 600,
+              color: "var(--text-3)",
+            }}
+          >
+            Quick summary
+          </summary>
+          <p
+            style={{
+              marginTop: 12,
+              fontSize: "var(--text-sm)",
+              lineHeight: "var(--lh-relaxed)",
+              color: "var(--text-3)",
+              maxWidth: "72ch",
+            }}
+          >
+            <strong style={{ color: "var(--text-2)" }}>TL;DR:</strong> Finni is a personal finance app
+            that works like texting a friend — free on Android via Google Play, with iOS coming soon. You
+            log spending in plain language by voice or text, and Finni automatically categorizes it, shows
+            a single &ldquo;safe-to-spend&rdquo; number, and sends gentle nudges before you overspend. It&apos;s
+            private by design, with bank-grade encryption, and never sells your data.
+          </p>
+        </details>
+      </div>
+    </section>
   );
 }
