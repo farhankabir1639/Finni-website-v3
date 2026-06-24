@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -65,12 +64,11 @@ export default function RootLayout({
       <body>
         <div className="finni-root">{children}</div>
 
-        {/* daamdekhi AEO tracking tag — detects human visitors and JS-capable AI crawlers */}
-        <Script
-          src="https://shop.daamdekhi.com/aeo/tag.js"
-          data-site="4N34mgvy"
-          strategy="afterInteractive"
-        />
+        {/* daamdekhi AEO tracking tag — detects human visitors and JS-capable AI crawlers.
+            Rendered as a literal tag in the SSR HTML (before </body>) per the vendor's
+            instructions, so single-fetch / non-JS crawlers can find it too. */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script async src="https://shop.daamdekhi.com/aeo/tag.js" data-site="4N34mgvy" />
         {/* No-script pixel so AI crawlers that don't run JavaScript are still detected */}
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
