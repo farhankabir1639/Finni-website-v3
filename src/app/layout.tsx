@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { orgLd } from "@/lib/company";
 import "./globals.css";
 
@@ -89,6 +90,7 @@ export default function RootLayout({
           />
         </noscript>
       </body>
+      <GoogleAnalytics gaId="G-KHSJXWQC35" />
     </html>
   );
 }
