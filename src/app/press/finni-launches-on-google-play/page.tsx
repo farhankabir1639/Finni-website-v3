@@ -40,6 +40,28 @@ const articleLd = {
     name: "Finni",
     logo: { "@type": "ImageObject", url: "https://www.heyfinni.com/images/Finni_Logo_White_Text_1.png" },
   },
+  hasPart: [
+    {
+      "@type": "WebPageElement",
+      name: "Announcement",
+      text: "Finni, the personal finance app that works like texting a friend, has launched on the Google Play Store. Users log spending in plain language by voice or text, and Finni turns it into clear, calm answers — no forms, categories, or spreadsheets.",
+    },
+    {
+      "@type": "WebPageElement",
+      name: "Availability",
+      text: "Finni is free to download on Android via the Google Play Store today, with no credit card required. An iOS version is coming soon.",
+    },
+    {
+      "@type": "WebPageElement",
+      name: "About Finni",
+      text: "Finni (Finni Money, Inc.) makes managing money as easy as sending a message: plain-language logging, automatic categorization, a safe-to-spend number, personalized insights, and savings-goal tracking, with bank-grade encryption. Founded by Farhan K (CEO) and Farshid A (CTO), with engineering led by Prionto; offices in San Francisco and Dhaka.",
+    },
+    {
+      "@type": "WebPageElement",
+      name: "Media contact",
+      text: "Finni Media Relations — company@heyfinni.com, +8801346060562.",
+    },
+  ],
 };
 
 const para: React.CSSProperties = {

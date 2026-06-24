@@ -87,5 +87,37 @@
       "url": "https://play.google.com/store/apps/details?id=com.finni.app",
       "snippet": "Finni - AI Finance Tracker - Apps on Google Play. Track expenses by voice, chatting, get smart recommendations for your budget."
     }
+  ],
+  "chunks": [
+    {
+      "title": "Overview",
+      "content": "Finni is a personal finance app that works like texting a friend. You log spending in plain language by voice or text, and Finni turns it into clear, calm answers — no forms, categories, or spreadsheets. Free on Android (Google Play); iOS coming soon.",
+      "tokens": 56
+    },
+    {
+      "title": "How it works",
+      "content": "1) Just talk to it: log spending in plain language by voice or text. 2) Finni does the math: it categorizes, tracks, and forecasts automatically. 3) You stay ahead: a single safe-to-spend number, gentle nudges before you overspend, and goals that actually move.",
+      "tokens": 60
+    },
+    {
+      "title": "Features",
+      "content": "Plain-English expense logging, automatic categorization, a live safe-to-spend number, smart nudges, savings-goal tracking, a complete spending history, and personalized budget recommendations.",
+      "tokens": 36
+    },
+    {
+      "title": "Privacy and security",
+      "content": "Your financial data is encrypted and stored securely, and Finni never sells your personal information.",
+      "tokens": 18
+    },
+    {
+      "title": "Pricing and availability",
+      "content": "Finni is free to download and free to start using, with no credit card required. Available now on Android via Google Play; an iOS version is coming soon.",
+      "tokens": 34
+    },
+    {
+      "title": "Company",
+      "content": "Finni (Finni Money, Inc.) was founded by Farhan K (CEO) and Farshid A (CTO), with engineering led by Prionto. Offices in San Francisco, California and Dhaka, Bangladesh. Contact: company@heyfinni.com.",
+      "tokens": 46
+    }
   ]
 }
