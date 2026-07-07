@@ -8,6 +8,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 export default defineConfig({
   name: "finni-website",
   title: "Finni AI Website",
+  basePath: "/studio",
   projectId,
   dataset,
   plugins: [structureTool()],
