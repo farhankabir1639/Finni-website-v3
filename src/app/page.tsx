@@ -21,12 +21,30 @@ const faqLd = {
   })),
 };
 
+// WebPage with Speakable (for voice assistants) + a recent dateModified
+// (freshness signal). dateModified is the build time, which reflects each deploy.
+const webPageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  url: "https://www.heyfinni.com",
+  name: "Finni — Your money, finally on speaking terms.",
+  dateModified: new Date().toISOString(),
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: [".finni-tldr", "#faq"],
+  },
+};
+
 export default function Page() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }}
       />
       <HomePage />
     </>

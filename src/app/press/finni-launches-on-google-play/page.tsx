@@ -62,6 +62,10 @@ const articleLd = {
       text: "Finni Media Relations — company@heyfinni.com, +8801346060562.",
     },
   ],
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", ".finni-lead"],
+  },
 };
 
 const para: React.CSSProperties = {

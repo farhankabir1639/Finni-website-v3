@@ -15,6 +15,8 @@ export type BlogPost = {
 
 export type BlogPostFull = BlogPost & {
   body?: PortableTextBlock[];
+  publishedAtRaw?: string;
+  updatedAt?: string;
 };
 
 type RawPost = {
@@ -24,6 +26,7 @@ type RawPost = {
   category: string;
   author?: string;
   publishedAt?: string;
+  _updatedAt?: string;
   readTime?: string;
   coverImage?: SanityImageSource;
   body?: PortableTextBlock[];
@@ -45,6 +48,8 @@ function toPost(r: RawPost): BlogPostFull {
     read: r.readTime || "",
     coverImageUrl: r.coverImage ? urlFor(r.coverImage).width(800).height(500).fit("crop").url() : undefined,
     body: r.body,
+    publishedAtRaw: r.publishedAt,
+    updatedAt: r._updatedAt,
   };
 }
 
@@ -60,7 +65,7 @@ const LIST_FIELDS = `
 `;
 
 const POSTS_QUERY = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc){${LIST_FIELDS}}`;
-const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{${LIST_FIELDS}, body}`;
+const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{${LIST_FIELDS}, _updatedAt, body}`;
 const SLUGS_QUERY = `*[_type == "post" && defined(slug.current)]{"slug": slug.current}`;
 
 /** Published posts from Sanity. Empty when unconfigured or on error. */

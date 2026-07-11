@@ -817,6 +817,7 @@ function TldrSummary() {
             Quick summary
           </summary>
           <p
+            className="finni-tldr"
             style={{
               marginTop: 12,
               fontSize: "var(--text-sm)",

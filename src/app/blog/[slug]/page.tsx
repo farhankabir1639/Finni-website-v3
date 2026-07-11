@@ -37,8 +37,26 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug);
   if (!post) notFound();
 
+  const blogPostingLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.publishedAtRaw,
+    dateModified: post.updatedAt || post.publishedAtRaw,
+    author: { "@type": "Person", name: post.author },
+    publisher: {
+      "@type": "Organization",
+      name: "Finni",
+      logo: { "@type": "ImageObject", url: "https://www.heyfinni.com/images/Finni_Logo_White_Text_1.png" },
+    },
+    mainEntityOfPage: `https://www.heyfinni.com/blog/${params.slug}`,
+    image: post.coverImageUrl || "https://www.heyfinni.com/opengraph-image",
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingLd) }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
