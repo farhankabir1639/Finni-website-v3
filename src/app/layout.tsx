@@ -28,7 +28,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Finni — Your money, finally on speaking terms.",
   description:
-    "Finni is a personal finance app that tracks spending by voice or text and gives clear answers about your money.",
+    "Finni is the personal finance app that feels like texting a friend. Track spending by voice or text and get clear answers. Now live on Google Play.",
   keywords: [
     "personal finance app",
     "AI budgeting",
