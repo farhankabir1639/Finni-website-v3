@@ -78,7 +78,46 @@ export default defineType({
       name: "body",
       title: "Body",
       type: "array",
-      of: [{ type: "block" }, { type: "image", options: { hotspot: true } }],
+      of: [
+        { type: "block" },
+        { type: "image", options: { hotspot: true } },
+        {
+          // Accepts inline images from imported/generated content.
+          type: "object",
+          name: "inlineImage",
+          title: "Inline image",
+          fields: [
+            { name: "image", title: "Image", type: "image", options: { hotspot: true } },
+            { name: "alt", title: "Alt text", type: "string" },
+            { name: "caption", title: "Caption", type: "string" },
+          ],
+          preview: { select: { media: "image", title: "alt", subtitle: "caption" } },
+        },
+      ],
+    }),
+    // ── Legacy fields (from imported content) — kept so older posts validate.
+    defineField({
+      name: "categories",
+      title: "Categories (legacy)",
+      type: "array",
+      of: [{ type: "string" }],
+      description: "Legacy import field. New posts use the single Category above.",
+    }),
+    defineField({
+      name: "mainImage",
+      title: "Main image (legacy)",
+      type: "image",
+      options: { hotspot: true },
+      description: "Legacy import field. New posts use Cover image above.",
+    }),
+    defineField({
+      name: "seo",
+      title: "SEO (legacy)",
+      type: "object",
+      fields: [
+        { name: "metaTitle", title: "Meta title", type: "string" },
+        { name: "metaDescription", title: "Meta description", type: "text" },
+      ],
     }),
   ],
   orderings: [
